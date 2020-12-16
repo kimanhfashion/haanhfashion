@@ -1,0 +1,2504 @@
+body{
+    margin:0;
+    font-size:14px;
+    color: #44566C;
+}
+
+
+.ladichat-widget {
+    bottom: 0;
+    position: fixed;
+    margin: 1em;
+    right: 0;
+    z-index: 998
+}
+
+.ladichat-widget *{
+    font-family: 'Roboto', sans-serif;
+    color: #44566C;
+}
+
+
+.ladichat-widget-frame {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-width: 0px;
+    border-style: none;
+    border-color: transparent;
+    border-image: initial;
+    border-radius: 0px;
+  }
+  .ladichat-widget-frame.open-button {
+    width: 56px;
+    height: 56px;
+    transition: all .1s ease-out;
+    bottom: 0;
+    position: fixed;
+    margin: 1em;
+    right: 0;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .14), 0 4px 8px rgba(0, 0, 0, .28);
+    border-radius: 50%;
+    z-index: 998;
+  }
+
+  #ladichat-widget-open.fab.open svg {
+    position: relative;
+    top: 18px;
+}
+
+#ladichat-widget-open.fab.close svg {
+    position: relative;
+    top: 16px;
+}
+
+
+.fab {
+    display: block;
+    width: 56px;
+    height: 56px;
+    text-align: center;
+    color: #f0f0f0;
+    border-radius: 50%;
+    cursor: pointer;
+    -webkit-transition: all .1s ease-out;
+    transition: all .1s ease-out;
+    position: relative;
+    z-index: 998;
+    background: #0d62f2;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 6px 0px, rgba(0, 0, 0, 0.16) 0px 2px 32px 0px;
+}
+
+.fab>i {
+    font-size: 2em;
+    line-height: 55px;
+    -webkit-transition: all .2s ease-out;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out
+}
+
+.fab:not(:last-child) {
+    width: 0;
+    height: 0;
+    margin: 20px auto 0;
+    opacity: 0;
+    visibility: hidden;
+    line-height: 40px
+}
+
+.fab:not(:last-child)>i {
+    font-size: 1.4em;
+    line-height: 40px
+}
+
+.fab:not(:last-child).is-visible {
+    width: 40px;
+    height: 40px;
+    margin: 15px auto 10;
+    opacity: 1;
+    visibility: visible
+}
+
+.fab:nth-last-child(1) {
+    -webkit-transition-delay: 25ms;
+    transition-delay: 25ms
+}
+
+.fab:not(:last-child):nth-last-child(2) {
+    -webkit-transition-delay: 20ms;
+    transition-delay: 20ms
+}
+
+.fab:not(:last-child):nth-last-child(3) {
+    -webkit-transition-delay: 40ms;
+    transition-delay: 40ms
+}
+
+.fab:not(:last-child):nth-last-child(4) {
+    -webkit-transition-delay: 60ms;
+    transition-delay: 60ms
+}
+
+.fab:not(:last-child):nth-last-child(5) {
+    -webkit-transition-delay: 80ms;
+    transition-delay: 80ms
+}
+
+.fab(:last-child):active,
+.fab(:last-child):focus,
+.fab(:last-child):hover {
+    box-shadow: 0 0 6px rgba(0, 0, 0, .16), 0 6px 12px rgba(0, 0, 0, .32)
+}
+
+
+.ladichat-widget-container {
+    position: fixed;
+    font-size: 12px;
+    line-height: 20px;
+    /* font-weight: 500; */
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    opacity: 0;
+    box-shadow: 0 0 20px 0 rgba(12,97,242,0.20);
+    border-radius: 10px;
+    -webkit-transition: all .2s ease-out;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    bottom: 80px;
+}
+
+
+.ladichat-widget-container.is-visible {
+    opacity: 1;
+    height: calc(100vh - 110px);
+    background-color: white;
+    transform: translateY(-5px);
+}
+
+
+
+@media only screen and (min-width:300px) {
+    .ladichat-widget-container {
+        width: 380px;
+    }
+}
+
+@media only screen and (min-width:480px) {
+    .ladichat-widget-container {
+        width: 380px;
+    }
+    .ladichat-field-item {
+        width: 65%
+    }
+}
+
+@media only screen and (min-width:768px) {
+    .ladichat-widget-container {
+        width: 380px;
+    }
+    .ladichat-field-item {
+        width: 65%
+    }
+}
+
+@media only screen and (min-width:1024px) {
+    .ladichat-widget-container {
+        width: 380px;
+    }
+    .ladichat-field-item {
+        width: 65%
+    }
+}
+.ladi-icon {
+    display: inline-block;
+    background-image: url(../icons.svg);
+    background-repeat: no-repeat
+}
+
+.ladi-icon.icon-svg-home {
+    background-position: 0 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-text {
+    background-position: -44px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-shape-rectangle {
+    background-position: -88px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-shape-line {
+    background-position: -132px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-shape-star {
+    background-position: -176px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-button {
+    background-position: -220px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-video-player {
+    background-position: -264px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-paragraph {
+    background-position: -308px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-list-bullet {
+    background-position: -352px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-html {
+    background-position: -396px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-slider {
+    background-position: -440px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-form {
+    background-position: -484px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-section {
+    background-position: -528px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-gallery {
+    background-position: -572px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-triangle-down {
+    background-position: -616px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-popup {
+    background-position: -660px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-time-clock {
+    background-position: -704px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-app-store {
+    background-position: -748px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-triangle-up {
+    background-position: -792px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-preview {
+    background-position: -836px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-publish {
+    background-position: -880px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-undo {
+    background-position: -924px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-redo {
+    background-position: -968px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-cloud-download {
+    background-position: -1012px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-b-preview {
+    background-position: -1056px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-history {
+    background-position: -1100px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-settings {
+    background-position: -1144px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-fonts {
+    background-position: -1188px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-mobile {
+    background-position: -1232px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-pc {
+    background-position: -1276px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-align-justify {
+    background-position: -1320px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-e-remove {
+    background-position: -1364px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-back-arrow {
+    background-position: -1408px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-floppy-disk {
+    background-position: -1452px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-data-upload {
+    background-position: -1496px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-dots-to-close {
+    background-position: -1540px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-hyperlink {
+    background-position: -1584px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-cross-vertical {
+    background-position: -1628px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-link-broken {
+    background-position: -1672px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-c-add {
+    background-position: -1716px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-bold {
+    background-position: -1760px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-underline {
+    background-position: -1804px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-strikethrough {
+    background-position: -1848px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-crop {
+    background-position: -1892px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-italic {
+    background-position: -1936px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-arrow-up {
+    background-position: -1980px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-lock {
+    background-position: -2024px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-bin {
+    background-position: -2068px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-duplicate {
+    background-position: -2112px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-arrow-down {
+    background-position: -2156px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-notify {
+    background-position: -2200px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-themes {
+    background-position: -2244px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-tag {
+    background-position: -2288px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-domain {
+    background-position: -2332px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-unlocked {
+    background-position: -2376px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-phone {
+    background-position: -2420px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-email {
+    background-position: -2464px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-zoom {
+    background-position: -2508px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-menu {
+    background-position: -2552px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-double-arrow-right {
+    background-position: -2596px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-double-arrow-left {
+    background-position: -2640px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-left-arrow {
+    background-position: -2684px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-apps {
+    background-position: -2728px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-right-arrow {
+    background-position: -2772px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-up-arrow {
+    background-position: -2816px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-page-setting {
+    background-position: -2860px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-status {
+    background-position: -2904px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-bill {
+    background-position: -2948px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-down-arrow {
+    background-position: -2992px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-products {
+    background-position: -3036px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-customers {
+    background-position: -3080px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-users {
+    background-position: -3124px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-discounts {
+    background-position: -3168px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-orders {
+    background-position: -3212px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-store {
+    background-position: -3256px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-ring {
+    background-position: -3300px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-maps {
+    background-position: -3344px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-edit {
+    background-position: -3388px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-intergration {
+    background-position: -3432px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-c-question {
+    background-position: -3476px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-c-warning {
+    background-position: -3520px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-crown {
+    background-position: -3564px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-calendar {
+    background-position: -3608px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-print {
+    background-position: -3652px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-hot-key {
+    background-position: -3696px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-keyboard {
+    background-position: -3740px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-b-chat {
+    background-position: -3784px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-logout {
+    background-position: -3828px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-key {
+    background-position: -3872px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-access-key {
+    background-position: -3916px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-logo-facebook {
+    background-position: -3960px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-project {
+    background-position: -4004px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-affilate {
+    background-position: -4048px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-blog {
+    background-position: -4092px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-dots {
+    background-position: -4136px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-align-left-2 {
+    background-position: -4180px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-align-center {
+    background-position: -4224px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-align-right-2 {
+    background-position: -4268px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-dock-bottom {
+    background-position: -4312px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-format-left {
+    background-position: -4356px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-dock-left {
+    background-position: -4400px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-align-left {
+    background-position: -4444px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-dock-right {
+    background-position: -4488px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-distribute-horizontal {
+    background-position: -4532px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-distribute-vertical {
+    background-position: -4576px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-align-top {
+    background-position: -4620px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-align-right {
+    background-position: -4664px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-referral {
+    background-position: -4708px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-align-center-horizontal {
+    background-position: -4752px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-dock-top {
+    background-position: -4796px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-caps-all {
+    background-position: -4840px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-align-center-vertical {
+    background-position: -4884px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-format-right {
+    background-position: -4928px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-g-check {
+    background-position: -4972px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-d-check {
+    background-position: -5016px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-delivery {
+    background-position: -5060px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-check-single {
+    background-position: -5104px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-palette {
+    background-position: -5148px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-sync {
+    background-position: -5192px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-border-radius {
+    background-position: -5236px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-copy {
+    background-position: -5280px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-flip-horizontal {
+    background-position: -5324px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-triangle-right {
+    background-position: -5368px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-triangle-left {
+    background-position: -5412px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-flip-vertical {
+    background-position: -5456px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-refresh {
+    background-position: -5500px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-chat-support {
+    background-position: -5544px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-filter {
+    background-position: -5588px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-mask {
+    background-position: -5632px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-backward {
+    background-position: -5676px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-forward {
+    background-position: -5720px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-rotate {
+    background-position: -5764px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-grid-view {
+    background-position: -5808px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-spin-lucky {
+    background-position: -5852px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-element-repeater {
+    background-position: -5896px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-ab-testing {
+    background-position: -5940px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-report {
+    background-position: -5984px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-inbox {
+    background-position: -6028px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-at-sign {
+    background-position: -6072px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-send-message {
+    background-position: -6116px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-chat-user {
+    background-position: -6160px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-re-open {
+    background-position: -6204px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-credit-card {
+    background-position: -6248px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-add-user {
+    background-position: -6292px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-image {
+    background-position: -6336px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-attach {
+    background-position: -6380px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-smile {
+    background-position: -6424px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-share {
+    background-position: -6468px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-visit-link {
+    background-position: -6512px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-text-color {
+    background-position: -6556px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-img {
+    background-position: -6600px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-align-bottom {
+    background-position: -6644px 0;
+    height: 44px;
+    width: 44px
+}
+
+.ladi-icon.icon-svg-a-chat {
+    background-position: -6688px 0;
+    height: 44px;
+    width: 44px
+}
+
+
+ul li {
+    list-style: none
+}
+
+
+.ladichat-widget-header {
+    font-size: 13px;
+    font-weight: 500;
+    height: 52px;
+    background: linear-gradient(135deg, rgb(42, 39, 218), rgb(0, 204, 255));
+    color: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 4px 0px;
+    display: inline-flex;
+    width: 100%;
+}
+
+.ladichat-widget-header-name {
+    font-size: 18px;
+    line-height: 52px;
+}
+.ladichat-widget-header2 {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0
+}
+
+.ladichat-widget-header .span {
+    float: right
+}
+
+.ladichat-widget-header-fullscreen {
+    display: none;
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+    opacity: .5;
+    margin: -10px 10px
+}
+
+.is-hide {
+    opacity: 0
+}
+
+.ladichat-widget-header-option {
+    float: left;
+    font-size: 15px;
+    list-style: none;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    text-align: left;
+    width: calc(100% -50px);
+    letter-spacing: .5px;
+    font-weight: 400;
+    overflow: hidden;
+}
+
+.ladichat-widget-header-avatar {
+    position: absolute;
+    width: 100%;
+    transform: translateX(30%);
+    -webkit-transform: translateX(30%);
+    opacity: 0.1;
+    /* margin-left:10px; */
+}
+
+.ladichat-widget-header-option img {
+    height: 40px;
+    border-radius: 50%;
+    width: 40px;
+    float: left;
+    margin: 2px 10px 2px 0px;
+    border: 4px solid rgba(0, 0, 0, .21);
+}
+
+.change_img img {
+    width: 35px;
+    margin: 0 20px 0 20px
+}
+
+.ladichat-widget-header-option .ladichat-agent-group {
+    font-size: 12px;
+    font-weight: 300;
+    width: 100%;
+    display: block;
+    line-height: 20px;
+}
+
+.ladichat-widget-header-option .ladichat-agent-online {
+    opacity: .4;
+    font-size: 11px;
+    font-weight: 300;
+    margin:0px 5px;
+}
+
+.ladichat-widget-header-option .ladichat-agent-name {
+    font-size: 14px;
+    font-weight: 500;
+    width: 100%;
+    display: block;
+    line-height: 25px;
+}
+
+.ladichat-widget-body {
+    background: #fff;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+   
+}
+.ladichat-widget-body.conversation{
+    height: calc(100vh - 170px);
+    overflow-y: auto;
+    border-radius: 0px 0px 10px 10px;
+}
+#ladichat-widget-body {
+    height: 450px
+}
+
+.ladichat-widget-body li,
+.ladichat-widget-login p,
+a#ladichat-widget-open {
+    -webkit-animation: zoomIn .5s cubic-bezier(.42, 0, .58, 1);
+    animation: zoomIn .5s cubic-bezier(.42, 0, .58, 1)
+}
+
+.ladichat-widget-body p {
+    padding: 20px;
+    color: #333
+}
+
+.ladichat-widget-body a {
+    width: 10%;
+    text-align: center;
+    border: none;
+    box-shadow: none;
+    line-height: 40px;
+    font-size: 15px
+}
+
+.ladichat-field-item {
+    position: relative;
+    margin: 5px 0 5px 0;
+    width: 50%;
+    font-weight: 500;
+    color: #4b4b4b;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    border: none;
+    outline: 0;
+    display: inline-block
+}
+
+.ladichat-field-item.ladichat-typing-message {
+    resize: none;
+    font-weight: 400
+}
+
+#ladichat-typing-message { 
+    margin-top:5px
+}
+.ladichat-msg-tags {
+    margin: 20px;
+    bottom: 0;
+    display: block;
+    width: 120%
+}
+
+.ladichat-msg-tags li {
+    padding: 5px 10px;
+    border-radius: 40px;
+    border: 1px solid #0375d0;
+    margin: 5px;
+    display: inline-block;
+    color: #0375d0;
+    cursor: pointer
+}
+
+.ladichat-widget-footer {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    background: #fff;
+    border-top: 1px solid #eee;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    max-height: 160px;
+}
+
+.ladichat-widget-footer.conversation-page{
+    bottom: 0px;
+    position: absolute;
+    left: 0px;
+    border-top:none;
+    background: linear-gradient(0deg, rgb(255, 255, 255), rgba(255, 255, 255, 0));
+}
+
+.ladichat-widget-footer.conversation-page .start-new-conversation {
+    height:100px;
+    /* padding-bottom: 30px;
+    padding-top: 20px; */
+}
+
+.button-new-conversation {
+    display: inline-block;
+    background: #2b34dd;
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 370px;
+    line-height: 46px;
+    border-radius: 23px;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+    margin-top: 20px;
+    font-weight: 500;
+    height: 46px;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.20);
+}
+
+.button-new-conversation:hover{
+    cursor: pointer;
+    transform: scale(1.03);
+}
+
+.ladichat-widget-footer2 {
+    bottom: 0;
+    position: absolute;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    z-index: 999
+}
+
+.ladichat-widget-footer a {
+    display: inline-block;
+    text-align: center
+}
+
+.ladichat-icon-blue-hover {
+    float: right;
+    background: rgba(0, 0, 0, 0)
+}
+
+.ladichat-widget-footer .fab {
+    width: 35px;
+    height: 35px;
+    box-shadow: none;
+    margin: 5px
+}
+
+.ladichat-widget-footer .fab>i {
+    font-size: 1.6em;
+    line-height: 35px;
+    color: #bbb
+}
+
+.ladichat-widget-footer .fab>i:hover {
+    color: #42a5f5
+}
+
+.ladichat-conversation {
+    position: relative;
+    background: #fff;
+    height: 100%;
+    min-height: 0;
+    font-size: 12px;
+    line-height: 18px;
+    width: 100%;
+    float: right;
+}
+.ladichat-conversation .conversation-item:last-child {
+    margin-bottom:86px;
+} 
+
+.ladichat-conversation.list-message{
+    overflow-y: auto;
+    height: calc(100vh - 250px);
+    padding-top: 25px;
+    padding-bottom: 25px;
+    position: relative;
+}
+
+.ladichat-widget-container .ladichat-conversation .ladichat-msg-item {
+    position: relative;
+    margin: 8px 0 15px 0;
+    padding: 8px 10px;
+    max-width: 60%;
+    display: block;
+    word-wrap: break-word;
+    border-radius: 3px;
+    -webkit-animation: zoomIn .5s cubic-bezier(.42, 0, .58, 1);
+    animation: zoomIn .5s cubic-bezier(.42, 0, .58, 1);
+    clear: both;
+    z-index: 999
+}
+
+.ladichat-msg-status {
+    margin: 45px -50px 0 0;
+    float: right;
+    font-size: 11px;
+    opacity: .3
+}
+
+.ladichat-msg-status-2 {
+    margin: -10px 20px 0 0;
+    float: right;
+    display: block;
+    font-size: 11px;
+    opacity: .3
+}
+
+.ladichat-widget-container .ladichat-conversation .ladichat-msg-item .ladichat-msg-avatar {
+    position: absolute;
+    top: 0
+}
+
+.ladichat-widget-container .ladichat-conversation .ladichat-msg-item.ladichat-msg-admin .ladichat-msg-avatar {
+    left: -52px;
+    background: #f0f2f7
+}
+
+.ladichat-widget-container .ladichat-conversation .ladichat-msg-item.ladichat-msg-user .ladichat-msg-avatar {
+    right: -52px;
+    background: rgba(0, 0, 0, .6)
+}
+
+.ladichat-msg-avatar img,
+.ladichat-widget-container .ladichat-conversation .ladichat-msg-item .ladichat-msg-avatar {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border-radius: 50%
+}
+
+.ladichat-widget-container .ladichat-conversation .ladichat-msg-item.ladichat-msg-admin {
+    margin-left: 60px;
+    float: left;
+    background: #f0f2f7;
+    color: #06132b;
+    border-radius: 20px;
+    font-weight: 400
+}
+
+.ladichat-widget-container .ladichat-conversation .ladichat-msg-item.ladichat-msg-user {
+    margin-right: 20px;
+    float: right;
+    background: linear-gradient(135deg, #2a27da, #0cf);
+    color: #fff;
+    transition: transform .2s ease 0s, margin .2s ease 0s;
+    color: #fff;
+    border-radius: 20px;
+    font-weight: 400
+}
+
+.ladichat-widget-container .ladichat-conversation .ladichat-msg-item.ladichat-msg-admin:before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: -12px;
+    z-index: 998;
+    border: 6px solid transparent;
+    border-right-color: rgba(255, 255, 255, .4)
+}
+
+.ladichat-widget input {
+    position: relative;
+    width: 75%;
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+    color: #4b4b4b;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    outline: 0;
+    background: #fff;
+    display: inline-block;
+    resize: none;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid  #94B4E1;
+    margin-bottom: 15px;
+}
+
+.ladichat-widget input:focus {
+    background: rgba(12,97,242,0.05);
+}
+.ladichat-form-signup {
+    margin: 10px 0 0 0
+}
+
+.ladichat-form-signup input {
+    margin: 5px 0 5px 0;
+    border: 1px solid #e0e0e0
+}
+
+.ladichat-form-signup textarea {
+    margin: 5px 0 5px 0;
+    border: 1px solid #e0e0e0;
+    position: relative;
+    width: 90%;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 500;
+    color: #4b4b4b;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    outline: 0;
+    background: #fff;
+    display: inline-block;
+    resize: none;
+    padding: 5px;
+    border-radius: 3px
+}
+
+.ladichat-form-signup button {
+    margin: 5px 0 5px 0;
+    border: 1px solid #e0e0e0;
+    position: relative;
+    width: 95%;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 500;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    outline: 0;
+    display: inline-block;
+    resize: none;
+    padding: 5px;
+    border-radius: 3px;
+    background: #0d62f2;
+    cursor: pointer
+}
+
+
+::-webkit-scrollbar-track {
+    border-radius: 0
+}
+
+::-webkit-scrollbar-thumb {
+    margin: 2px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, .2)
+}
+
+.is-active {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out
+}
+
+.is-float {
+    box-shadow: 0 0 6px rgba(0, 0, 0, .16), 0 6px 12px rgba(0, 0, 0, .32)
+}
+
+.is-loading {
+    display: block;
+    -webkit-animation: load 1s cubic-bezier(0, .99, 1, .6) infinite;
+    animation: load 1s cubic-bezier(0, .99, 1, .6) infinite
+}
+
+@-webkit-keyframes zoomIn {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 0
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 0
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes load {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 0
+    }
+    50% {
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+        opacity: 1
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 0
+    }
+}
+
+@keyframes load {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 0
+    }
+    50% {
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+        opacity: 1
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 0
+    }
+}
+
+.blue .fab {
+    background: #42a5f5;
+    color: #fff
+}
+
+.blue .chat {
+    background: #42a5f5;
+    color: #999
+}
+
+@-webkit-keyframes ripple {
+    100% {
+        opacity: 0;
+        -moz-transform: scale(5);
+        -ms-transform: scale(5);
+        webkit-transform: scale(5);
+        -webkit-transform: scale(5);
+        transform: scale(5)
+    }
+}
+
+@keyframes ripple {
+    100% {
+        opacity: 0;
+        -moz-transform: scale(5);
+        -ms-transform: scale(5);
+        webkit-transform: scale(5);
+        -webkit-transform: scale(5);
+        transform: scale(5)
+    }
+}
+
+::-webkit-input-placeholder {
+    color: #bbb
+}
+
+:-ms-input-placeholder {
+    color: #bbb
+}
+
+::-moz-placeholder {
+    color: #bbb
+}
+
+:-moz-placeholder {
+    color: #bbb
+}
+
+.ladichat-icon-blue-hover:hover svg g {
+    fill: #0c61f2
+}
+
+.ladichat-icon-blue-hover:hover svg g circle,
+.ladichat-icon-blue-hover:hover svg g line,
+.ladichat-icon-blue-hover:hover svg g polyline,
+.ladichat-icon-blue-hover:hover svg g rect,
+.ladichat-icon-blue-hover:hover svg path,
+.ladichat-icon-blue-hover:hover svg polygon {
+    stroke: #0c61f2
+}
+
+
+.ladichat-widget-header {
+    position: relative
+}
+
+#ladichat-footer-medias {
+    display: inline-flex;
+    clear: both;
+    overflow: hidden;
+    padding: 8px 2px;
+    width: 26%;
+    text-align: right;
+} 
+
+#ladichat-footer-medias input#image-upload-message, #ladichat-footer-medias input#file-upload-message{
+    display: none;
+}
+
+#ladichat-footer-medias label{
+    cursor: pointer;
+    margin:0px 8px;
+    display: inline-block;
+}
+
+#ladichat-footer-typing{
+    position: relative;
+    overflow: hidden;
+    padding:10px;
+    box-sizing: border-box;
+}
+#ladichat-footer-typing textarea{
+    width: 88%;
+    padding: 6px 10px;
+    float: left;
+    color:#06132b;
+    font-size: 15px;
+}
+
+#ladichat-footer-typing {
+    display: inline-flex;
+    width: 100%;
+    cursor: pointer;
+}
+
+#ladichat-powered-by {
+    top: 5px;
+    padding: 0px 7px;
+    font-size: 10px;
+    text-align: right;
+    color: #44566C;
+    background: rgba(12,97,242,0.08);
+    border-radius: 10px;
+    height: 18px;
+    line-height: 18px;
+    position: absolute;
+    left: 160px;
+}
+#ladichat-powered-by>a{
+    color:#0c61f2;
+    text-decoration: none;
+    font-weight: 500;
+    line-height: unset;
+    font-size: 10px;
+    animation: unset;
+    -webkit-animation: unset;
+}
+
+.conversation-item {
+    font-size: 14px;
+    height: 45px;
+    padding: 12px 10px 12px 15px;
+    text-align: left;
+    position: absolute;
+    width: 94%;
+  }
+  .conversation-item:hover {
+    background: #f1f1f1;
+  }
+
+  .conversation-item.selected {
+    background: #e8f0fe; 
+  }
+  .conversation-item:hover {
+    cursor: pointer;
+  }
+  
+  .conversation-item .inbox {
+    display:inline-flex;
+    width:100%;
+  }
+  
+  .conversation-item .inbox .detail{
+    width:100%;
+    padding-left:15px;
+  } 
+  
+  .conversation-item .inbox .detail .staff-name {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 250px;
+    display: inline-block;
+    font-weight: 500;
+  }
+  .conversation-item .inbox .detail .time {
+    float:right;
+    font-size:13px;
+      font-weight:400;
+  }
+  .conversation-item .inbox .detail .message .content{
+    padding: 2px !important;
+    margin: 2px 0px;
+    font-size:13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 230px;
+    color: rgba(68,86,108,0.70);
+  }
+  
+  .conversation-item .inbox .avatar{
+    width:40px;
+    float:left;
+  }
+  
+  .conversation-item .inbox .avatar img{
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    margin-right:20px;
+  }
+  
+  .ladichat-widget-header-back-btn {
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 10px;
+  }
+  .ladichat-widget-header-back-btn span{
+    display: block;
+    margin-top: 9px;
+    margin-left: 11px;
+  }
+  
+  .ladichat-widget-header-back-btn:hover{
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+.slide-in {
+    animation: slide-in 0.5s forwards;
+    -webkit-animation: slide-in 0.5s forwards;
+}
+
+.slide-out {
+    animation: slide-out 0.5s forwards;
+    -webkit-animation: slide-out 0.5s forwards;
+}
+    
+@keyframes slide-in {
+    100% { transform: translateX(0%); opacity: 1; }
+}
+
+@-webkit-keyframes slide-in {
+    100% { -webkit-transform: translateX(0%);  opacity: 1; }
+}
+    
+@keyframes slide-out {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+}
+
+@-webkit-keyframes slide-out {
+    0% { -webkit-transform: translateX(0%); }
+    100% { -webkit-transform: translateX(-50%); }
+}
+.ladichat-message-sent-item {
+    width: 90%;
+    display: block;
+    float: right;
+    text-align: left;
+}
+
+.ladichat-message-sent-item .content{
+    max-width: 100%;
+    float: right;
+    margin-right: 10px;
+}
+
+.ladichat-message-sent-item .content .line{
+    width: 100%;
+    display: inline-block;
+}
+
+.ladichat-message-sent-item .content img{
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 4px;
+    display: block;
+    max-width: 100%;
+}
+    
+
+.ladichat-msg-sent-text {
+    border-radius: 8px;
+    font-size: 14px;
+    margin-top: 3px;
+    color: white;
+    padding: 8px 10px;
+    background-color: #0C61F2;
+    float: right;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.ladichat-msg-sent-text a{
+    color:white;
+}
+.ladichat-msg-datetime {
+    text-align: right;
+    float: right;
+}
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  }
+
+.ladichat-message-recieve-item{
+    width: 93%;
+    display: flex;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.ladichat-message-recieve-left{
+    width: 38px;
+}
+
+.ladichat-message-recieve-item .avatar-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.ladichat-message-recieve-item  .avatar-img img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.ladichat-message-recieve-item .no-avatar {
+    background: #0c61f2;
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    display: block;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 12px;
+}
+
+.ladichat-message-recieve-item .no-avatar p{
+    padding: 0!important;
+    color: white;
+    margin-top: 0px;
+}
+.ladichat-message-recieve-mid {
+    width: 88%;
+
+    display: flex;
+}
+
+.ladichat-message-recieve-item .content {
+    max-width: 93%;
+    display: inline-block;
+}
+
+.ladichat-message-recieve-item .content .line{
+    width: 100%;
+    display: flex;
+}
+
+.ladichat-message-recieve-item .content img{
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 4px;
+    display: block;
+    max-width: 100%;
+}
+    
+
+.ladichat-message-recieve-item .content{
+
+}
+
+.ladichat-msg-recieve-text {
+    display: inline-block;
+    background: rgba(12,97,242,0.08) none repeat scroll 0 0;
+    border-radius: 10px;
+    font-size: 14px;
+    padding: 5px 10px 8px;
+    white-space: pre-wrap;
+    word-break: break-word;
+    text-align: left;
+}
+
+.ladichat-msg-recieve-text p, .ladichat-msg-sent-text p{
+    padding:unset;
+    margin: auto;
+}
+
+.ladichat-message-recieve-item .ladichat-msg-datetime{
+    float: left;
+}
+
+.ladichat-typing{
+	display: inline-block;
+    font-size: 14px;
+    font-weight: 300;
+    border-radius: 16px;
+    padding: 6px 10px 8px 12px;
+}
+.ladichat-typing.user {
+    background: #f1f0f0 none repeat scroll 0 0;
+}
+.ladichat-typing.admin {
+    background: #0084ff none repeat scroll 0 0;
+}
+
+.ladichat-typing.mini .dot {
+    background:rgb(88, 87, 87);
+}
+.ladichat-typing.user .dot {
+    background:rgb(88, 87, 87);
+}
+
+.ladichat-typing.admin .dot {
+    background:white;
+}
+
+.ladichat-typing .dot {
+    display:inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius:50%;
+    margin-right:3px;
+    
+    animation: wave 1.0s linear infinite;
+}
+.ladichat-typing .dot:nth-child(1) {
+    animation-delay: -1.1s;
+}
+.ladichat-typing .dot:nth-child(2) {
+    animation-delay: -0.8s;
+}
+.ladichat-typing .dot:nth-child(3) {
+    animation-delay: -0.5s;
+}
+
+
+@keyframes wave {
+	0%, 60%, 100% {
+		transform: initial;
+	}
+
+	40% {
+		transform: translateY(-3px);
+	}
+}
+
+[data-placeholder]:empty:before{
+    content: attr(data-placeholder);
+    font-style: italic;
+}
+
+[contenteditable="true"] {
+    border: 0px;
+    word-wrap: break-word;
+    margin: 0;
+    min-height: 20px;
+    max-height: 140px;
+    width: 73%;
+    position: relative;
+    overflow-y: scroll;
+    padding-left: 5px;
+    padding-right: 5px;
+    vertical-align: top;
+    box-sizing: border-box;
+    font-size: 14px;
+    text-align: left;
+    outline: none;
+}
+[contenteditable="true"]:hover{
+    cursor: text;
+}
+[contenteditable=true]:empty:before{
+    content: attr(placeholder);
+    display: block; /* For Firefox */
+    font-style: normal;
+    color: #94B4E1;
+}
+
+.ladiui-modal {
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	top: 0px;
+	left: 0px;
+	overflow: hidden;
+	opacity: 1;
+	transition: all 150ms linear;
+	z-index: 15;
+	outline: 0;
+	display: none;
+}
+
+.ladiui-modal {
+    overflow: unset;
+}
+.ladiui-modal.visible {
+    overflow: scroll;
+    display: block;
+}
+
+.ladichat-startpage {
+    height: 100%;
+    border-radius: 10px;
+}
+.ladichat-widget-header-logo { 
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 5px;
+}
+
+.ladichat-widget-header-logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.ladichat-startpage .header-welcome{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.header-welcome .logo {
+    padding: 10px 20px 0px 20px;
+    text-align: center;
+}
+.header-welcome .logo img{
+    max-height: 45px;
+    max-width: 375px;
+}
+
+.header-welcome .intro-text{
+    padding: 0px 20px 5px 20px;
+    text-align: center;
+    color:white;
+    max-height: 70px;
+    overflow: hidden;
+}
+
+.header-welcome .intro-text p{
+    font-size: 16px;
+    margin-top:5px;
+    margin-bottom: 5px;
+}
+
+.survey-title { 
+    padding: 5px;
+    font-size: 14px;
+}
+
+.survey-title.error {
+    font-weight: unset;
+    color: #d50000;
+    font-size: 14px;
+
+}
+.ladichat-startpage-body {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    overflow-y: auto;
+    height:calc(100vh - 245px);
+}
+
+.item-article {
+    padding: 10px 10px 10px 10px;
+    overflow: hidden;
+    text-align: left;
+}
+
+.item-article img{
+    width:100%;
+    display:block;
+}
+
+.extra-content .content-item {
+    border-radius: 5px;
+    background: white;
+}
+
+.extra-content .content-item .item-title {
+    padding: 10px;
+    border-bottom: 1px solid #cccccc;
+    font-size: 16px;
+}
+ 
+.module-border-wrap {
+    border-radius: 5px;
+    padding: 5px 1px 1px 1px;
+    position: relative;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    background: linear-gradient(135deg, rgb(42, 39, 218), rgb(0, 204, 255));
+  }
+
+.badge-new-message {
+    bottom: 31px;
+    right: -35px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: block;
+    position: relative;
+    background-color: red;
+    line-height: 19px;
+    font-size: 11px;
+    font-weight: 500;
+    opacity: 0;
+    color: white;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-name: bounce-3;
+        animation-timing-function: ease;
+}
+
+@keyframes bounce-3 {
+    0%   { transform: translateY(0); }
+    30%  { transform: translateY(-10px); }
+    50%  { transform: translateY(0); }
+    100% { transform: translateY(0); }
+}
+.badge-new-message.visible{
+    opacity: 1;
+}
+
+.survey-field.error {
+    border-color: #d50000;
+}
+
+.ladichat-emoji-item {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin: 5px;
+    color: #9d9d9d;
+    font-size: 18px;
+}
+
+.ladichat-emoji-item:hover{
+    cursor: pointer;
+}
+
+.ladichat-emoji-all {
+    width: 100%;
+    height: 185px;
+    overflow: scroll;
+}
+
+.ladichat-emoji {
+    background-color: white;
+    top: 420px;
+    position: absolute;
+    border: 1px solid #dce0e8;
+    width: 286px;
+    border-radius: 6px;
+    left: 80px;
+}
+
+.ladichat-search-emoji input{
+    width:95%;
+    margin:5px;
+}
+
+.ladichat-message-unread-badge {
+    float: right;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ff0200;
+    font-size: 11px !important;
+    color: white !important;
+    position: absolute;
+    left: 50px;
+    top: 14px;
+}
+
+[data-tooltip]:before {
+    content: attr(data-tooltip);
+}
+
+[data-tooltip] {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+[data-tooltip]:before {
+    padding: 5px;
+    min-width: 100px;
+    content: attr(data-tooltip);
+    display: none;
+    position: absolute;
+    background: #fff;
+    color: #444;
+    font-size: 14px;
+    line-height: initial;
+    text-align: center;
+    border-radius: 4px;
+    border-color: #f8fafb;
+    box-shadow: 0 4px 14px 0 rgba(0,0,0,.2), 0 0 0 1px rgba(0,0,0,.05);
+}
+.tooltip-mini[data-tooltip]:before {
+    padding: 5px;
+    min-width: 100px;
+}
+[data-tooltip-position="top"]:before,
+[data-tooltip-position="bottom"]:before {
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+/* Dynamic vertical centering */
+[data-tooltip-position="right"]:before,
+[data-tooltip-position="left"]:before {
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+[data-tooltip-position="top"]:before {
+    bottom: 100%;
+    margin-bottom: 6px;
+}
+[data-tooltip-position="right"]:before {
+    left: 100%;
+    margin-left: 6px;
+}
+[data-tooltip-position="bottom"]:before {
+    top: 100%;
+    margin-top: 10px;
+}
+[data-tooltip-position="left"]:before {
+    right: 100%;
+    margin-right: 6px;
+}
+
+/* Tooltip arrow styling/placement */
+[data-tooltip]:after {
+    content: '';
+    display: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: #f8fafb;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    opacity: 0.95;
+    border: 1px solid #fafafa;
+}
+/* Dynamic horizontal centering for the tooltip */
+[data-tooltip-position="top"]:after,
+[data-tooltip-position="bottom"]:after {
+    left: 50%;
+    margin-left: -6px;
+}
+/* Dynamic vertical centering for the tooltip */
+[data-tooltip-position="right"]:after,
+[data-tooltip-position="left"]:after {
+    top: 50%;
+    margin-top: -6px;
+}
+[data-tooltip-position="top"]:after {
+    bottom: 100%;
+    border-width: 6px 6px 0;
+    border-color: #fff;
+    border-left-color: rgba(169,194,209,.1);
+    border-right-color: rgba(169, 194, 209, .1);
+}
+[data-tooltip-position="right"]:after {
+    left: 100%;
+    border-width: 6px 6px 6px 0;
+    border-color: #fff;
+    border-top-color: rgba(169,194,209,.1);
+    border-bottom-color: rgba(169,194,209,.1);
+}
+[data-tooltip-position="bottom"]:after {
+    top: 114%;
+    border-width: 0 6px 6px;
+    border-color: #fff transparent;
+}
+[data-tooltip-position="left"]:after {
+    right: 100%;
+    border-width: 6px 0 6px 6px;
+    border-color: #fff;
+    border-top-color: rgba(169,194,209,.1);
+    border-bottom-color:rgba(169,194,209,.1);
+}
+/* Show the tooltip when hovering */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+    display: block;
+    z-index: 1000;
+}
+
+
+#ladiui-toast-container {
+	position: fixed;
+	z-index: 999;
+	border-radius: 5px;
+}
+
+
+#ladiui-toast-container.toast-top-right {
+	top: 10px;
+	right: 10px;
+}
+
+.ladiui-toast.toast-error {
+	background: #bd362f;
+}
+
+.ladiui-toast.toast-warning {
+	background: #f89406;
+}
+
+.ladiui-toast.toast-success {
+	background: #51a351;
+}
+
+.ladiui-toast.toast-info {
+	background: #2f96b4;
+}
+
+.ladiui-toast.toast-info,
+.ladiui-toast.toast-success,
+.ladiui-toast.toast-warning,
+.ladiui-toast.toast-error {
+	margin: 0 0 6px;
+	padding: 15px 15px 15px 50px;
+	width: 300px;
+	-moz-border-radius: 3px 3px 3px 3px;
+	-webkit-border-radius: 3px 3px 3px 3px;
+	border-radius: 3px 3px 3px 3px;
+	background-position: 15px center;
+	background-repeat: no-repeat;
+	-moz-box-shadow: 0 0 12px #999999;
+	-webkit-box-shadow: 0 0 12px #999999;
+	box-shadow: 0 0 12px #999999;
+	color: #ffffff;
+	opacity: 0.8;
+	-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+	filter: alpha(opacity=80);
+}
+
+.ladiui-toast-title {
+	font-weight: bold;
+}
+
+.ladiui-toast-message {
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
+}
+
+.re-sent-msg {
+    display: flex;
+}
+
+.re-sent-msg a{
+    font-size: 12px;
+    color: red;
+    line-height: 16px;
+    width: 100%;
+    cursor: pointer;
+}
